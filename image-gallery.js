@@ -1,8 +1,8 @@
 let url = "https://picsum.photos/v2/list"
 
 createImage = (img) => {
-    image = document.createElement('img');
-    imagesContainer = document.getElementById('container');
+    let image = document.createElement('img');
+    let imagesContainer = document.getElementById('images-container');
     image.classList.add("image");
     image.src = img.download_url;
     image.addEventListener('click', e => {enlargeImage(img), false});
@@ -10,14 +10,30 @@ createImage = (img) => {
 }
 
 enlargeImage = (img) => {
-    enlargedImage = document.createElement('img');
-    enlargedImageContainer = document.getElementById('enlarged-image-container');
-    imageInfo = document.createElement('p');
+    let imageGallery = document.getElementById('image-gallery');
+    if(imageGallery.childNodes.length > 1) {
+        imageGallery.lastChild.remove();
+    }
+
+    let enlargedImageContainer = document.createElement('div');
+    let enlargedImage = document.createElement('img');
+    let imageInfo = document.createElement('div');
+    let imageAuthor = document.createElement('span');
+    let imageSize = document.createElement('span');
+
+    enlargedImageContainer.id = 'enlarged-image-container';
     enlargedImage.src = img.download_url;
     enlargedImage.id = 'enlarged-image';
-    imageInfo.innerHTML = `${img.author} ${img.height}x${img.width}`;
+    imageInfo.id = 'image-info';
+    imageAuthor.id = 'image-author';
+    imageSize.id = 'image-size';
+    imageAuthor.innerHTML = img.author;
+    imageSize.innerHTML = ` ${img.height}x${img.width}`;
+    imageInfo.appendChild(imageAuthor);
+    imageInfo.appendChild(imageSize);
     enlargedImageContainer.appendChild(enlargedImage);
     enlargedImageContainer.appendChild(imageInfo);
+    imageGallery.appendChild(enlargedImageContainer);
 }
 
 fetch(url)

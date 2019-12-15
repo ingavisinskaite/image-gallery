@@ -2,13 +2,14 @@ body {
     margin: 0;
 }
 
-#body {
+#image-gallery {
     display: flex;
 }
 
-#container {
+#images-container {
     height: 100vh;
     overflow-y: scroll;
+    margin-right: 20px;
 }
 
 .image {
@@ -27,4 +28,13 @@ body {
 #enlarged-image {
     max-width: 100%;
     max-height: 95%;
+}
+
+#image-author {
+    font-size: 24px;
+    font-weight: bold; 
+}
+
+#image-size {
+    font-size: 20px;
 }
