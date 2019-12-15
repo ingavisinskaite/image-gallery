@@ -1,8 +1,30 @@
-.container {
-    display: block;
+body {
+    margin: 0;
+}
+
+#body {
+    display: flex;
+}
+
+#container {
+    height: 100vh;
+    overflow-y: scroll;
 }
 
 .image {
     width: 200px;
     height: 200px;
+    display: block;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+#enlarged-image-container {
+    flex: 1;
+    height: 100vh;
+}
+
+#enlarged-image {
+    max-width: 100%;
+    max-height: 95%;
 }
