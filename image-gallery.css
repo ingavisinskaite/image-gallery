@@ -21,6 +21,10 @@ body {
     cursor: pointer;
 }
 
+.image:hover {
+    opacity: 0.8;
+}
+
 #enlarged-image-container {
     display: none;
     flex: 1;
