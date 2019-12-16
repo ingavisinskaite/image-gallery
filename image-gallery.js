@@ -1,4 +1,4 @@
-let url = "https://picsum.photos/v2/list";
+const url = "https://picsum.photos/v2/list";
 
 fetch(url)
   .then(resp => resp.json())
@@ -9,8 +9,8 @@ fetch(url)
   });
 
 createImage = img => {
-  let image = document.createElement("img");
-  let imagesContainer = document.getElementById("images-container");
+  const image = document.createElement("img");
+  const imagesContainer = document.getElementById("images-container");
 
   image.classList.add("image");
   image.src = img.download_url;
@@ -22,10 +22,10 @@ createImage = img => {
 };
 
 enlargeImage = img => {
-  let enlargedImageContainer = document.getElementById('enlarged-image-container');
-  let enlargedImage = document.getElementById('enlarged-image');
-  let imageAuthor = document.getElementById('image-author')
-  let imageSize = document.getElementById('image-size');
+  const enlargedImageContainer = document.getElementById('enlarged-image-container');
+  const enlargedImage = document.getElementById('enlarged-image');
+  const imageAuthor = document.getElementById('image-author')
+  const imageSize = document.getElementById('image-size');
 
   enlargedImage.src = img.download_url;
   imageAuthor.innerHTML = img.author;
