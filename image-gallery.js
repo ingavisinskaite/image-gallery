@@ -9,11 +9,15 @@ fetch(url)
   });
 
 createImage = img => {
+  let urlArr = img.download_url.split("/");
+  urlArr.length = urlArr.length - 2;
+  let url = urlArr.join("/") + "/200";
+
   const image = document.createElement("img");
   const imagesContainer = document.getElementById("images-container");
 
   image.classList.add("image");
-  image.src = img.download_url;
+  image.src = url;
   image.addEventListener("click", e => {
     enlargeImage(img);
   });
@@ -22,10 +26,12 @@ createImage = img => {
 };
 
 enlargeImage = img => {
-  const enlargedImageContainer = document.getElementById('enlarged-image-container');
-  const enlargedImage = document.getElementById('enlarged-image');
-  const imageAuthor = document.getElementById('image-author')
-  const imageSize = document.getElementById('image-size');
+  const enlargedImageContainer = document.getElementById(
+    "enlarged-image-container"
+  );
+  const enlargedImage = document.getElementById("enlarged-image");
+  const imageAuthor = document.getElementById("image-author");
+  const imageSize = document.getElementById("image-size");
 
   enlargedImage.src = img.download_url;
   imageAuthor.innerHTML = img.author;
